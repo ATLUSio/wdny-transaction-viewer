@@ -46,7 +46,7 @@ function getMetadata(tx) {
 
 function getAmount(tx) {
     let amount = parseInt(tx.amount) ? tx.amount/100 : 0
-    return `Amount: ${amount} ${tx.currency}`;
+    return `Amount: ${amount} ${tx.currency}  `;
 }
 
 function getCollection(tx, valueOnly=false) {
@@ -66,13 +66,22 @@ function getStatus(tx) {
     return `Status: ${tx.status}`;
 }
 
-function getRefundedAmount(tx) {
+function getCharge(tx) {
     let charges = tx.charges.data;
-    let charge = charges[0];
+    return charges[0];
+}
 
+function getRefundedAmount(tx) {
+    let charge = getCharge(tx);
     if (!charge) return 0;
 
     return charge.amount_refunded;
+}
+
+function getReceiptUrl(tx) {
+    let charge = getCharge(tx);
+    if (!charge) return "";
+    return charge.receipt_url;
 }
 
 function getDate(tx) {
@@ -121,7 +130,14 @@ function MakeTransactionElement(tx) {
 
     // left panel information
     let _leftPanel = makeDiv("leftPanel");
-    _leftPanel.appendChild(makeSpan(getAmount(tx)))
+    let _amountSpan = makeSpan(getAmount(tx));
+    let _receiptAnchor = makeElement("a")
+    _receiptAnchor.innerText = "(Receipt)";
+    _receiptAnchor.href = getReceiptUrl(tx);
+    _receiptAnchor.target = "_blank";
+    _amountSpan.appendChild(_receiptAnchor);
+    _leftPanel.appendChild(_amountSpan);
+    // _leftPanel.appendChild(makeSpan(getAmount(tx)))
     _leftPanel.appendChild(breakElement());
     _leftPanel.appendChild(makeSpan(getCollection(tx)))
     _leftPanel.appendChild(breakElement());
@@ -303,7 +319,7 @@ setInterval(() => {
             })
             btn.hasListener = true;
         }
-    })
+    });
 
     // let collectionSelect = document.getElementById('collection-select');
     // if (collectionSelect && !collectionSelect.hasListener) {

@@ -13,5 +13,5 @@ This extension is reading the local storage on that page and it looks for wdny.i
 3. Go to chrome dev tools
 4. Add the extension
 5. Add the extension as an "unpacked extension"
-6. Go to https://shop.wdny.io/<whatever_brand>/process
+6. Go to https://shop.wdny.io/<any_brand>/process
 7. Open the extension

@@ -1,0 +1,114 @@
+button {
+    height: 30px;
+    width: 120px;
+    outline: none;
+    margin: 10px;
+    border: none;
+    border-radius: 2px;
+}
+
+#refreshButton {
+    margin-left: 5%;
+    font-weight: bold;
+    display: inline-block;
+    border: 1px solid black;
+    border-radius: 4px;
+    padding: 0.5%;
+    cursor: pointer;
+}
+
+#rpiDiv {
+    margin-left: 5%;
+    font-weight: bold;
+}
+
+#optDiv {
+    margin-left: 5%;
+    font-weight: bold;
+    display: inline-block;
+}
+
+#sortDiv { 
+    margin-left: 5%;
+    font-weight: bold;
+    display: inline-block;
+    border: 1px solid black;
+    border-radius: 4px;
+    padding: 0.5%;
+    cursor: pointer;
+}
+
+button {
+    cursor: pointer;
+}
+
+button.current {
+    box-shadow: 0 0 0 2px white,
+                0 0 0 4px black;
+}
+
+body {
+    min-width: 800px;
+}
+
+.transaction {
+    border: 1px black solid;
+    border-radius: 4px;
+    height: 125px;
+    width: 80%;
+    margin-left: 5%;
+    margin-right: 5%;
+    overflow: hidden;
+}
+  
+.stateColor {
+    width: 1%;
+    min-height: 100%;
+    display: inline-block;
+}
+
+.stateColor.success {
+    background-color: green;
+}
+
+.stateColor.failed {
+    background-color: crimson;
+}
+  
+.transactionContent {
+    display: inline-block;
+    max-width: 95%;
+    margin-top: -2%;
+}
+  
+.idHeader {
+    vertical-align: top;
+}
+
+.setButton {
+    display: inline-block;
+    border: 1px solid black;
+    border-radius: 4px;
+    margin: 0 0 0 2%;
+}
+  
+.idDivider {
+    border-bottom: 1px black solid;
+    min-width: 110%;
+    margin: 1% 0 1% -1%;
+}
+  
+.panels {
+    margin-bottom: 1%;
+    min-width: 100%;
+}
+  
+.leftPanel {
+    width: 49%;
+    display: inline-block;
+}
+  
+.rightPanel {
+    width: 49%;
+    display: inline-block;
+}
